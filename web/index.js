@@ -54,7 +54,7 @@ inputs.forEach(input => {
             addFile(e.target.files[0]);
         }
 
-        setTimeout(() => scrollBy(0, 1000), 800);
+        setTimeout(() => scrollBy({ top: 100, behavior: "smooth" }), 800);
     });
 });
 
@@ -109,7 +109,7 @@ encode_button.addEventListener("click", e => {
         alert(error);
     }
 
-    scrollTo(0, 1000);
+    scrollTo({ top: 100, behavior: "smooth" });
 });
 
 remove_button.addEventListener("click", e => {
@@ -139,7 +139,7 @@ remove_button.addEventListener("click", e => {
         alert(error);
     }
 
-    scrollTo(0, 1000);
+    scrollTo({ top: 100, behavior: "smooth" });
 });
 
 decode_button.addEventListener("click", e => {
