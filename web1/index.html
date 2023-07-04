@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Png Manipulator</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Eczar:wght@400;700&display=swap');
+
+		* {
+			box-sizing: border-box;
+			font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+		}
+
+		body {
+			margin: 0;
+			padding: 0;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			--theme: rgb(193, 118, 5);
+			scroll-behavior: smooth;
+		}
+
+		.title {
+			width: 100%;
+			position: relative;
+			min-height: 100vh;
+		}
+
+		.content {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 50px;
+			width: 100%;
+			height: 100%;
+		}
+
+		.content h1 {
+			color: var(--theme);
+			font-size: 140px;
+			font-family: 'Eczar', serif;
+			margin: 0;
+		}
+
+		.content h1 span {
+			font-family: 'Eczar', serif;
+			color: black;
+			background-color: var(--theme);
+			background-clip: border-box;
+			-webkit-background-clip: text;
+			-webkit-text-stroke: 6px transparent;
+		}
+
+		.title-left {
+			clip-path: polygon(0 0, 25% 0, 50% 50%, 25% 100%, 0 100%);
+			background-color: black;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+		}
+
+		.title-right {
+			background-color: var(--theme);
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			z-index: -2;
+		}
+
+		.main {
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+			width: 60%;
+			align-items: center;
+			justify-content: flex-start;
+		}
+
+		.main p {
+			margin: 0;
+			text-align: justify;
+			font-size: 20px;
+			font-weight: bold;
+			margin-bottom: 50px;
+		}
+
+		.drop {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 250px;
+			height: 250px;
+			border: 5px dashed black;
+			border-radius: 10px;
+			color: gray;
+			background-color: white;
+		}
+
+		.drop p {
+			font-size: 20px;
+			padding: 0 20px;
+			margin: 0;
+			text-align: center;
+		}
+
+		.drop_over {
+			border-style: solid;
+		}
+
+		.image-container {
+			position: absolute;
+			width: calc(100% - 20px);
+			height: calc(100% - 20px);
+			border-radius: 10px;
+			background: transparent;
+			background-size: contain;
+			background-repeat: no-repeat;
+		}
+
+		.input {
+			display: none;
+		}
+
+		.invisible {
+			display: none;
+		}
+
+		.label {
+			margin: 10px;
+			margin-top: 20px;
+			padding: 10px 20px;
+			background-color: black;
+			color: white;
+			font-size: 15px;
+			font-weight: bold;
+			border: none;
+			outline: none;
+			border-radius: 10px;
+			cursor: pointer;
+		}
+
+		.buttons {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.text {
+			border: none;
+			color: var(--theme);
+			background-color: black;
+			padding: 10px 20px;
+			font-size: 20px;
+			border-radius: 20px;
+		}
+
+		.text::placeholder {
+			color: var(--theme);
+		}
+
+		.text:disabled {
+			border: none;
+			width: 100%;
+			text-align: center;
+		}
+
+		@media screen and (max-width: 900px) {
+			.title-left {
+				clip-path: polygon(100% 0, 100% 25%, 50% 30%, 0 25%, 0 0);
+			}
+
+			.content {
+				padding-top: 0;
+				flex-direction: column;
+			}
+
+			.content h1 {
+				margin-bottom: 100px;
+			}
+
+			.main {
+				width: 100%;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="title">
+		<div class="title-left"></div>
+		<div class="title-right"></div>
+		<div class="content">
+			<h1>Png<span>!</span></h1>
+			<div class="main">
+				<p>Use this simple tool to encode secret messages into png files and send them to your friends! You can
+					also use it to decode png files sent by them. Just upload the image, type in the message and click
+					encode.</p>
+				<div class="drop">
+					<div id="uploadImage" class="image-container"></div>
+					<p>drag and drop image(png only) here or browse</p>
+				</div>
+				<div class="buttons">
+					<label class="label" for="upload">BROWSE</label>
+					<button class="label remove invisible">REMOVE</button>
+				</div>
+				<input type="file" accept=".png" class="input" id="upload">
+				<input type="text" class="invisible text" placeholder="Message to encode">
+				<div class="buttons">
+					<button class="label invisible" id="encode">ENCODE</button>
+					<button class="label invisible" id="decode">DECODE</button>
+					<button class="label invisible" id="remove">REMOVE MESSAGE</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<noscript>This page contains webassembly and javascript content, please enable javascript in your
+		browser.</noscript>
+	<script src="./bootstrap.js"></script>
+</body>
+
+</html>
