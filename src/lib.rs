@@ -13,17 +13,6 @@ use js_sys::Uint8Array;
 use png::Png;
 use wasm_bindgen::prelude::*;
 
-pub fn set_panic_hook() {
-    // When the `console_error_panic_hook` feature is enabled, we can call the
-    // `set_panic_hook` function at least once during initialization, and then
-    // we will get better error messages if our code ever panics.
-    //
-    // For more details see
-    // https://github.com/rustwasm/console_error_panic_hook#readme
-    // #[cfg(feature = "console_error_panic_hook")]
-    console_error_panic_hook::set_once();
-}
-
 #[wasm_bindgen]
 extern "C" {
     fn alert(s: &str);
@@ -79,8 +68,6 @@ pub fn decode(buffer: &JsValue, chunk_type: &str) -> std::result::Result<String,
 
 #[wasm_bindgen]
 pub fn check_for_chunk(buffer: &JsValue, chunk_type: &str) -> bool {
-    set_panic_hook();
-
     let byte_array: &[u8] = &Uint8Array::new(buffer).to_vec();
 
     match Png::try_from(byte_array).unwrap().chunk_by_type(chunk_type) {
