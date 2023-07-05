@@ -1,19 +1,5 @@
 <div align="center">
-    <h1 style="
-    color: rgb(193, 118, 5);
-    font-size: 140px;
-    font-weight: bold;
-    background-color: black;
-	background-clip: border-box;
-	-webkit-background-clip: text;
-	-webkit-text-stroke: 6px transparent;
-    ">Png<span style="
-    color: black;
-	background-color: rgb(193, 118, 5);
-	background-clip: border-box;
-	-webkit-background-clip: text;
-	-webkit-text-stroke: 6px transparent;
-    ">!</span></h1>
+    <img src="./logo.png" width="400">
 	<h1>Png Manipulator</h1>
 
 Use this tool to encode secret messages in png files and send them to your friends. Then, decode the images that they send you! 
