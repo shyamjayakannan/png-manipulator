@@ -12,6 +12,7 @@ const encode_button = document.getElementById("encode");
 const decode_button = document.getElementById("decode");
 const remove_button = document.getElementById("remove");
 const texts = document.querySelectorAll(".text");
+const browse_button = document.getElementById("browse");
 
 let file = null;
 let chunk_exists = false;
@@ -39,6 +40,7 @@ droparea.forEach(area => {
             removes.forEach(element => element.classList.remove("invisible"));
             texts.forEach(element => element.classList.remove("invisible"));
             p.style.color = "white";
+            browse_button.classList.add("invisible");
             addFile(e.dataTransfer.files[0]);
         }
     });
@@ -50,7 +52,8 @@ inputs.forEach(input => {
             removes.forEach(element => element.classList.remove("invisible"));
             texts.forEach(element => element.classList.remove("invisible"));
             p.style.color = "white";
-
+            browse_button.classList.add("invisible");
+            
             addFile(e.target.files[0]);
         }
 
@@ -64,17 +67,18 @@ removes.forEach(remove => {
         texts.forEach(element => element.classList.add("invisible"));
         removes.forEach(element => element.classList.add("invisible"));
         p.style.color = "gray";
-
+        
         inputs.forEach(input => input.value = "");
         file = null;
-
+        
         const a = document.querySelectorAll("a");
-
+        
         if (a) a.forEach(link => link.remove());
-
+        
         decode_button.classList.add("invisible");
         remove_button.classList.add("invisible");
         encode_button.classList.add("invisible");
+        browse_button.classList.remove("invisible");
     });
 });
 
