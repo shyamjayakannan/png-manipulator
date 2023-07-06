@@ -39,9 +39,9 @@ The project uses the [`create-wasm-app`] template, which uses Webpack to bundle 
 
 ## Dependencies
 
-- [`crc`]: Rust implementation of [`CRC`].
+- [`crc`]: Rust implementation of [`CRCs`].
 
-[`CRC`]: https://en.wikipedia.org/wiki/Cyclic_redundancy_check
+[`CRCs`]: https://en.wikipedia.org/wiki/Cyclic_redundancy_check
 [`crc`]: https://github.com/mrhooray/crc-rs
 <br>
 
