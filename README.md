@@ -22,6 +22,7 @@ While decoding, the tool looks for the same chunk type that it uses for encoding
 A very helpful source to learn about png files can be [`found here`].
 
 [`found here`]: http://www.libpng.org/pub/png/spec/1.2/PNG-Structure.html
+<br>
 
 ## How It's made
 
@@ -34,6 +35,14 @@ The project uses the [`create-wasm-app`] template, which uses Webpack to bundle 
 [`Rust`]: https://www.rust-lang.org
 [`WebAssembly`]: https://webassembly.org
 [`create-wasm-app`]: https://github.com/rustwasm/create-wasm-app
+<br>
+
+## Dependencies
+
+- [`crc`]: Rust implementation of [`CRC`].
+
+[`CRC`]: https://en.wikipedia.org/wiki/Cyclic_redundancy_check
+[`crc`]: https://github.com/mrhooray/crc-rs
 <br>
 
 ## Contributing
