@@ -57,4 +57,4 @@ Contributions are most welcome.
 
 Don't forget to give the project a star! Thanks again!
 
-[`a Pull Request`]: https://github.com/shyamjayakannan/rpg/pulls
+[`a Pull Request`]: https://github.com/shyamjayakannan/png-manipulator/pulls
